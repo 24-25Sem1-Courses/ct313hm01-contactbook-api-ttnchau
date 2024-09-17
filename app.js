@@ -24,7 +24,7 @@ app.use('/public', express.static('public'));
 
 contactsRouter.setup(app);
 
-// Handle 404 reponse
+// Handle 404 reponse.
 app.use(resourceNotFound);
 
 //Define error-handling middleware last, after other app.use() and routes calls
