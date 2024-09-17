@@ -6,9 +6,8 @@ Course: CT313H-Web Technologies and Services.
 
 Semester 1, Academic year: 2024-2025.
 
-**Student ID**: ...
+**Student ID**: B2105663
 
-**Student Name**: ...
+**Student Name**: Ton Thi Ngoc Chau
 
-**Class Number**: ...
-
+**Class Number**: M01
