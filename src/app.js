@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 
-const JSend = require('../jsend');
+const JSend = require('./jsend');
 const contactsRouter = require('./routes/contacts.router');
 const {
     resourceNotFound,
