@@ -41,13 +41,14 @@ function error(message, data = null) {
             message,
             data,
         };
-
     }
+
     return {
         status: 'error',
         message,
     };
 }
+
 module.exports = {
     success,
     fail,

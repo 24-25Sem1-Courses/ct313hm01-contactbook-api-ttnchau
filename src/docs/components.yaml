@@ -19,21 +19,45 @@ components:
           description: contact address
         phone:
           type: string
-          descript: contact phone number
+          description: contact phone number
         favorite:
           type: integer
-        enum: [0, 1]
-        default: 0
-        description: favorite contact
-      avatar:
-        type: string
-        readOnly: true # Returned by HTTP GET
-        description: contact avatar file path
-      avatarFile:
-        type: string
-        format: binary
-        writeOnly: true # Used in POST/PUT/PATCH
-        description: contact avatar file
+          enum: [0, 1]
+          default: 0
+          description: favorite contact
+        avatar:
+          type: string
+          readOnly: true # Returned by HTTP GET
+          description: contact avatar file path
+        avatarFile:
+          type: string
+          format: binary
+          writeOnly: true # Used in POST/PUT/PATCH
+          description: contact avatar file
+    PaginationMetadata:
+      type: object
+      properties:
+        totalRecords:
+          type: integer
+          default: 0
+          description: The total number of records
+        firstPage:
+          type: integer
+          default: 1
+          description: The first page
+        lastPage:
+          type: integer
+          default: 1
+          description: The last page
+        page:
+          type: integer
+          default: 1
+          description: The current page
+        limit:
+          type: integer
+          default: 5
+          description: The number of records per page
+
   responses:
     "200NoData":
       content:
@@ -51,6 +75,7 @@ components:
                 nullable: true
                 default: null
                 description: The response data
+
   parameters:
     contactIdParam:
       name: id
@@ -59,3 +84,24 @@ components:
       in: path
       schema:
         type: integer
+
+    limitParam:
+      name: limit
+      description: Number of records per page
+      in: query
+      schema:
+        type: integer
+        default: 5
+        minimum: 1
+        maximum: 100
+      required: false
+
+    pageParam:
+      name: page
+      description: Page number of records
+      in: query
+      schema:
+        type: integer
+        default: 1
+        minimum: 1
+      required: false
