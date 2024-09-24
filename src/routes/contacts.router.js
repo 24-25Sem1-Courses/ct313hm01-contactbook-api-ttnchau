@@ -50,6 +50,15 @@ module.exports.setup = (app) => {
      *                          $ref: '#/components/schemas/Contact'
      *                      metadata:
      *                        $ref: '#/components/schemas/PaginationMetadata'
+     *        400:
+     *          description: Invalid input provided by the client
+     *          $ref: '#/components/responses/400BadRequest'
+     *        404:
+     *          description: The requested resource was not found
+     *          $ref: '#/components/responses/404NotFound'
+     *        500:
+     *          description: Internal server error
+     *          $ref: '#/components/responses/500InternalServerError'
      */
     router.get('/', contactsController.getContactsByFilter);
     
@@ -84,6 +93,12 @@ module.exports.setup = (app) => {
      *                    properties:
      *                      contacts:
      *                        $ref: '#/components/schemas/Contact' 
+     *        400:
+     *          description: Invalid input provided by the client
+     *          $ref: '#/components/responses/400BadRequest'
+     *        500:
+     *          description: Internal server error
+     *          $ref: '#/components/responses/500InternalServerError'
      */
     router.post('/', avatarUpload, contactsController.createContact);
 
@@ -99,6 +114,12 @@ module.exports.setup = (app) => {
      *        200:
      *          description: All contacts deleted
      *          $ref: '#/components/responses/200NoData'
+     *        404:
+     *          description: The requested resource was not found
+     *          $ref: '#/components/responses/404NotFound'
+     *        500:
+     *          description: Internal server error
+     *          $ref: '#/components/responses/500InternalServerError'
      */
     router.delete('/', contactsController.deleteAllContacts);
     router.all('/', methodNotAllowed);
@@ -130,6 +151,15 @@ module.exports.setup = (app) => {
      *                    properties:
      *                      contact:
      *                        $ref: '#/components/schemas/Contact'
+     *        400:
+     *          description: Invalid input provided by the client
+     *          $ref: '#/components/responses/400BadRequest'
+     *        404:
+     *          description: The requested resource was not found
+     *          $ref: '#/components/responses/404NotFound'
+     *        500:
+     *          description: Internal server error
+     *          $ref: '#/components/responses/500InternalServerError'
      */
     router.get('/:id', contactsController.getContact);
 
@@ -166,6 +196,15 @@ module.exports.setup = (app) => {
      *                    properties:
      *                      contact:
      *                        $ref: '#/components/schemas/Contact'
+     *        400:
+     *          description: Invalid input provided by the client
+     *          $ref: '#/components/responses/400BadRequest'
+     *        404:
+     *          description: The requested resource was not found
+     *          $ref: '#/components/responses/404NotFound'
+     *        500:
+     *          description: Internal server error
+     *          $ref: '#/components/responses/500InternalServerError'
      */
     router.put('/:id', avatarUpload, contactsController.updateContact);
     
@@ -183,6 +222,12 @@ module.exports.setup = (app) => {
      *        200:
      *          description: Contact deleted
      *          $ref: '#/components/responses/200NoData'
+     *        404:
+     *          description: The requested resource was not found
+     *          $ref: '#/components/responses/404NotFound'
+     *        500:
+     *          description: Internal server error
+     *          $ref: '#/components/responses/500InternalServerError'
      */
     router.delete('/:id', contactsController.deleteContact);
     router.all('/:id', methodNotAllowed);

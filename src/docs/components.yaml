@@ -75,6 +75,82 @@ components:
                 nullable: true
                 default: null
                 description: The response data
+    "201Created":
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: The response status
+                enum:
+                  - success
+              data:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: The ID of the created resource
+                  name:
+                    type: string
+                    description: The name of the created resource
+            example:
+              status: success
+              data:
+                id: 1
+                name: "John Doe"
+    "400BadRequest":
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: The response status
+                enum:
+                  - fail
+              message:
+                type: string
+                description: Error message explaining what was wrong with the request
+            example:
+              status: fail
+              message: "Invalid input data"
+    "404NotFound":
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: The response status
+                enum:
+                  - fail
+              message:
+                type: string
+                description: A description of why the resource was not found
+            example:
+              status: fail
+              message: "Resource not found"
+    "500InternalServerError":
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+                description: The response status
+                enum:
+                  - error
+              message:
+                type: string
+                description: A generic error message
+            example:
+              status: error
+              message: "Internal server error"
 
   parameters:
     contactIdParam:
